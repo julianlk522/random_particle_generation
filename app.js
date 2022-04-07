@@ -50,13 +50,20 @@ Particle.prototype.update = function() {
 // Initializing a new particle array
 function init() {
     particleArray = [];
+    
     for (let i = 0; i < 100; i++) {
+        let colors = {
+            red: Math.random() * 255,
+            green: Math.random() * 255,
+            blue: Math.random() * 255,
+        }
+
         let size = Math.random() * 20;
         let x = Math.random() * (innerWidth - size * 2) + size;
         let y = Math.random() * (innerHeight - size * 2) + size;
         let directionX = (Math.random() * 0.4) - 0.2;
         let directionY = (Math.random() * 0.4) - 0.2;
-        let color = 'white';
+        let color = `rgb(${colors.red}, ${colors.green}, ${colors.blue})`;
 
         particleArray.push(new Particle(x, y, directionX, directionY, size, color));
     }
